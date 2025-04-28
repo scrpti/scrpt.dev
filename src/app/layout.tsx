@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "scrpt.dev | Portfolio",
+  title: "scrpti.dev | CV",
   description: "Personal portfolio of Pedro (scrpt) - Full Stack Developer",
 };
 

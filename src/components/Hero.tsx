@@ -21,7 +21,7 @@ export default function Hero() {
         className="absolute inset-0 z-0"
         >
         <Image
-            src="/code.gif" // Cambia la ruta según tu estructura de carpetas
+            src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTB1amF4MWVpcG4yOGpxaXB0dWhyemxkY29iM3Nnbm9ueWgxbmU4YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jMbfmwkrcm82PRlYa9/giphy.gif" // Cambia la ruta según tu estructura de carpetas
             alt="Background GIF"
             layout="fill"
             objectFit="cover"
@@ -37,7 +37,7 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="text-5xl md:text-7xl font-bold mb-4 text-white"
         >
-          Hi, I&apos;m Pedro <span className="text-blue-400">(scrpt)</span>
+          Hi, I&apos;m Pedro <span className="text-blue-400">(scrpti)</span>
         </motion.h1>
 
         <motion.p
@@ -46,7 +46,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl"
         >
-          Full Stack Developer specialized in building reliable, high-performance web applications.
+          Former Software Engineer
         </motion.p>
 
         <motion.div
