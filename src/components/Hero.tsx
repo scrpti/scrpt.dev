@@ -21,10 +21,11 @@ export default function Hero() {
         className="absolute inset-0 z-0"
         >
         <Image
-            src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTB1amF4MWVpcG4yOGpxaXB0dWhyemxkY29iM3Nnbm9ueWgxbmU4YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jMbfmwkrcm82PRlYa9/giphy.gif" // Cambia la ruta según tu estructura de carpetas
+            src="https://res.cloudinary.com/ds7vt7dl9/image/upload/v1745934552/nfo9kewnodcv72ntvoxq.gif"
             alt="Background GIF"
             layout="fill"
             objectFit="cover"
+            quality={100}
             priority
         />
         </motion.div>

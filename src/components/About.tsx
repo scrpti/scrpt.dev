@@ -22,7 +22,7 @@ export default function About() {
       {/* Fondo de collage con movimiento */}
       <motion.div
         style={{ x }}
-        className="absolute inset-0 z-0 grid grid-cols-6 grid-rows-2 gap-2 opacity-20 blur-sm w-[200%]"
+        className="absolute inset-0 z-0 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 grid-rows-2 gap-2 opacity-20 blur-sm w-[300%] sm:w-[250%] md:w-[200%]"
       >
         {/* FOTOS "de relleno" al inicio */}
         <Image src="https://res.cloudinary.com/ds7vt7dl9/image/upload/v1745915600/ofxsmezfyhac4bivhvm9.jpg" alt="Extra 1" width={400} height={400} className="object-cover w-full aspect-square" />
@@ -48,24 +48,24 @@ export default function About() {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative z-10 max-w-3xl"
+        className="relative z-10 max-w-3xl px-4 sm:px-6"
       >
         <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black">About Me</h2>
-        <p className="text-lg md:text-xl text-black-300 mb-4">
+        <p className="text-base sm:text-lg md:text-xl text-black mb-4">
           Hi, I&apos;m Pedro. Since I was a child, I have been passionate about computers, and today, programming has become my true vocation.
         </p>
-        <p className="text-lg md:text-xl text-black-400 mb-4">
+        <p className="text-base sm:text-lg md:text-xl text-black mb-4">
           I love designing and understanding everything related to 0s and 1s.
           In 2022, I began my professional career by enrolling in the Software Engineering degree at the University of Málaga.
         </p>
-        <p className="text-lg md:text-xl text-black-400 mb-4">
+        <p className="text-base sm:text-lg md:text-xl text-black mb-4">
           As someone who believes in constant learning, in 2024 I completed a course at Harvard University in Artificial Intelligence and Language Models.
         </p>
-        <p className="text-lg md:text-xl text-black-300 mb-4">
+        <p className="text-base sm:text-lg md:text-xl text-black mb-4">
           My curiosity for technology started early; back in my first year of high school, I was already reading about Bitcoin, Ethereum, and how blockchain could transform the future.
           In 2025, I pursued a University Extension in Blockchain Technologies, where I deepened my knowledge significantly.
         </p>
-        <p className="text-lg md:text-xl text-black-400 mb-4">
+        <p className="text-base sm:text-lg md:text-xl text-black mb-4">
           Outside of technology, I enjoy practicing sports like paddle surfing and snowboarding with friends. I also love attending Málaga CF matches, supporting my city&apos;s team.
         </p>
       </motion.div>

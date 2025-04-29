@@ -1,49 +1,64 @@
 'use client';
+
 import { motion } from 'framer-motion';
+import { FaBriefcase } from 'react-icons/fa';
+
+const experience = [
+  {
+    title: 'Backend Developer',
+    company: 'Freelance',
+    period: '2023 - Present',
+    description: 'Building web apps for clients using FastAPI, Express and MongoDB.',
+  },
+  {
+    title: 'Full Stack Developer',
+    company: 'PyMWare',
+    period: '2024 - Present',
+    description: 'Designing internal tools and ERP solutions for small businesses.',
+  },
+  {
+    title: 'Next Opportunity',
+    company: 'Your Company?',
+    period: 'Open to Offers',
+    description: 'Let\'s build something impactful together. I\'m open to freelance, part-time, or full-time roles where I can make a difference.',
+    future: true,
+  },
+];
+
 
 export default function Experience() {
-  const experiences = [
-    {
-      company: 'Freelance',
-      role: 'Full Stack Developer',
-      date: '2023 - Present',
-      description: 'Building web applications for clients using Next.js, Node.js, and MongoDB.',
-    },
-    {
-      company: 'PyMWare',
-      role: 'Full Stack Developer',
-      date: '2024 - present',
-      description: '',
-    },
-  ];
-
   return (
-    <section id="experience" className="min-h-screen flex flex-col justify-center items-center px-6 py-20">
+    <section
+      id="experience"
+      className="min-h-screen px-6 pt-24 pb-16 bg-gradient-to-br from-[#0f172a] to-[#1e293b] text-white"
+    >
       <motion.h2
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-4xl md:text-5xl font-bold mb-12 text-center"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-4xl md:text-5xl font-bold text-center mb-16"
       >
         Experience
       </motion.h2>
 
-      <div className="flex flex-col gap-8 max-w-3xl">
-        {experiences.map((exp, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: index * 0.2 }}
-            className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-          >
-            <h3 className="text-2xl font-semibold mb-2">{exp.role}</h3>
-            <p className="text-gray-600 mb-1">{exp.company}</p>
-            <p className="text-gray-400 text-sm mb-4">{exp.date}</p>
-            <p className="text-gray-600">{exp.description}</p>
-          </motion.div>
-        ))}
+      <div className="max-w-3xl mx-auto space-y-10">
+      {experience.map((item, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: index * 0.1 }}
+          className={`relative border-l-4 ${item.future ? 'border-dashed border-gray-500' : 'border-blue-500'} pl-6 py-4 ${item.future ? 'bg-white/10' : 'bg-white/5'} rounded-md backdrop-blur-md`}
+        >
+          <div className={`absolute -left-[22px] top-5 p-2 rounded-full ${item.future ? 'bg-gray-500' : 'bg-blue-500'}`}>
+            <FaBriefcase className="text-white" />
+          </div>
+          <h3 className="text-xl font-semibold">{item.title}</h3>
+          <p className="text-sm text-gray-300">{item.company}</p>
+          <p className="text-sm text-gray-400 mb-2">{item.period}</p>
+          <p className="text-gray-200 text-sm">{item.description}</p>
+        </motion.div>
+      ))}
       </div>
     </section>
   );
