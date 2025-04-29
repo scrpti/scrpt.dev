@@ -1,24 +1,47 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import Image from 'next/image';
 
 export default function About() {
-  return (
-    <section id="about" className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden">
-      
-      {/* Collage de fondo */}
-      <div className="absolute inset-0 z-0 grid grid-cols-4 gap-2 opacity-20 blur-sm">
-        <Image src="/foto1.jpeg" alt="Pedro 1" width={400} height={400} className="object-cover w-full aspect-square" />
-        <Image src="/foto2.jpeg" alt="Pedro 2" width={400} height={400} className="object-cover w-full aspect-square" />
-        <Image src="/foto3.jpeg" alt="Pedro 3" width={400} height={400} className="object-cover w-full aspect-square" />
-        <Image src="/foto4.jpeg" alt="Pedro 4" width={400} height={400} className="object-cover w-full aspect-square" />
-        <Image src="/foto5.jpeg" alt="Pedro 5" width={400} height={400} className="object-cover w-full aspect-square" />
-        <Image src="/foto6.jpeg" alt="Pedro 5" width={400} height={400} className="object-cover w-full aspect-square" />
-        <Image src="/foto7.jpeg" alt="Pedro 5" width={400} height={400} className="object-cover w-full aspect-square" />
-        <Image src="/foto3.jpeg" alt="Pedro 5" width={400} height={400} className="object-cover w-full aspect-square" />
-      </div>
+  const ref = useRef<HTMLElement>(null); // 👈 este ref es el correcto
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  // Movimiento controlado: cuando bajas dentro de la sección, el fondo se mueve
+  const x = useTransform(scrollYProgress, [0, 0.5, 1], ["-45%", "-20%", "0%"]);
 
+  return (
+    <section
+      ref={ref} // 👈 asignamos el ref aquí
+      id="about"
+      className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden"
+    >
+      {/* Fondo de collage con movimiento */}
+      <motion.div
+        style={{ x }}
+        className="absolute inset-0 z-0 grid grid-cols-6 grid-rows-2 gap-2 opacity-20 blur-sm w-[200%]"
+      >
+        {/* FOTOS "de relleno" al inicio */}
+        <Image src="https://res.cloudinary.com/ds7vt7dl9/image/upload/v1745915600/ofxsmezfyhac4bivhvm9.jpg" alt="Extra 1" width={400} height={400} className="object-cover w-full aspect-square" />
+        <Image src="https://res.cloudinary.com/ds7vt7dl9/image/upload/v1745915599/ptfqcxquqdmex1q0kgzp.jpg" alt="Extra 2" width={400} height={400} className="object-cover w-full aspect-square" />
+
+        {/* FOTOS PRINCIPALES */}
+        <Image src="https://res.cloudinary.com/ds7vt7dl9/image/upload/v1745915599/fcitnhh7hdzcbukc4op6.jpg" alt="Pedro 1" width={400} height={400} className="object-cover w-full aspect-square" />
+        <Image src="https://res.cloudinary.com/ds7vt7dl9/image/upload/v1745915600/bvfotg5boyvrantghiys.jpg" alt="Pedro 2" width={400} height={400} className="object-cover w-full aspect-square" />
+        <Image src="https://res.cloudinary.com/ds7vt7dl9/image/upload/v1745915600/s0navs4sf0mwatjnilz2.jpg" alt="Pedro 3" width={400} height={400} className="object-cover w-full aspect-square" />
+        <Image src="https://res.cloudinary.com/ds7vt7dl9/image/upload/v1745915599/vvbgryuggh0gouhfubwk.jpg" alt="Pedro 4" width={400} height={400} className="object-cover w-full aspect-square" />
+        <Image src="https://res.cloudinary.com/ds7vt7dl9/image/upload/v1745915599/vvbgryuggh0gouhfubwk.jpg" alt="Pedro 5" width={400} height={400} className="object-cover w-full aspect-square" />
+        <Image src="https://res.cloudinary.com/ds7vt7dl9/image/upload/v1745915600/uatp8gb9kphxzuxc0hkg.jpg" alt="Pedro 6" width={400} height={400} className="object-cover w-full aspect-square" />
+        <Image src="https://res.cloudinary.com/ds7vt7dl9/image/upload/v1745915599/fykngvy4jpmeyqxvbylf.jpg" alt="Pedro 7" width={400} height={400} className="object-cover w-full aspect-square" />
+        <Image src="https://res.cloudinary.com/ds7vt7dl9/image/upload/v1745915600/ofxsmezfyhac4bivhvm9.jpg" alt="Pedro 8" width={400} height={400} className="object-cover w-full aspect-square" />
+
+        {/* FOTOS "de relleno" al final */}
+        <Image src="https://res.cloudinary.com/ds7vt7dl9/image/upload/v1745915600/ofxsmezfyhac4bivhvm9.jpg" alt="Extra 3" width={400} height={400} className="object-cover w-full aspect-square" />
+        <Image src="https://res.cloudinary.com/ds7vt7dl9/image/upload/v1745915599/ptfqcxquqdmex1q0kgzp.jpg" alt="Extra 4" width={400} height={400} className="object-cover w-full aspect-square" />
+      </motion.div>
 
       {/* Contenido del About */}
       <motion.div
@@ -29,13 +52,21 @@ export default function About() {
       >
         <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black">About Me</h2>
         <p className="text-lg md:text-xl text-black-300 mb-4">
-          I'm Pedro (scrpt), a passionate Full Stack Developer currently pursuing a degree in Software Engineering and specializing in Blockchain technologies.
+          Hi, I&apos;m Pedro. Since I was a child, I have been passionate about computers, and today, programming has become my true vocation.
         </p>
         <p className="text-lg md:text-xl text-black-400 mb-4">
-          I combine creativity and precision, building high-quality web applications using technologies like JavaScript, TypeScript, Next.js, and modern frameworks.
+          I love designing and understanding everything related to 0s and 1s.
+          In 2022, I began my professional career by enrolling in the Software Engineering degree at the University of Málaga.
         </p>
         <p className="text-lg md:text-xl text-black-400 mb-4">
-          I love solving complex problems, optimizing performance, and creating seamless user experiences. I'm constantly learning, working on new projects, and open to exciting tech opportunities 🚀.
+          As someone who believes in constant learning, in 2024 I completed a course at Harvard University in Artificial Intelligence and Language Models.
+        </p>
+        <p className="text-lg md:text-xl text-black-300 mb-4">
+          My curiosity for technology started early; back in my first year of high school, I was already reading about Bitcoin, Ethereum, and how blockchain could transform the future.
+          In 2025, I pursued a University Extension in Blockchain Technologies, where I deepened my knowledge significantly.
+        </p>
+        <p className="text-lg md:text-xl text-black-400 mb-4">
+          Outside of technology, I enjoy practicing sports like paddle surfing and snowboarding with friends. I also love attending Málaga CF matches, supporting my city&apos;s team.
         </p>
       </motion.div>
     </section>

@@ -10,7 +10,7 @@ export default function Footer() {
       className="w-full py-6 text-white flex items-center justify-center text-sm"
     >
       <p>
-        © {new Date().getFullYear()} scrpt.dev — All rights reserved
+        © {new Date().getFullYear()} scrpti.dev — All rights reserved
       </p>
     </motion.footer>
   );

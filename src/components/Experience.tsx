@@ -10,10 +10,10 @@ export default function Experience() {
       description: 'Building web applications for clients using Next.js, Node.js, and MongoDB.',
     },
     {
-      company: 'Tech Company',
-      role: 'Frontend Developer Intern',
-      date: '2022 - 2023',
-      description: 'Collaborated with a team to develop and maintain the company website using React and TailwindCSS.',
+      company: 'PyMWare',
+      role: 'Full Stack Developer',
+      date: '2024 - present',
+      description: '',
     },
   ];
 
