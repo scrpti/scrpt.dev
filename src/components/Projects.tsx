@@ -15,7 +15,7 @@ const projects = [
     title: 'WhatsApp Bot',
     description: 'Automated bot for order management via WhatsApp.',
     link: 'https://wa.me/34631912763',
-    image: 'https://sora.chatgpt.com/g/gen_01jt0wc99cf48tneyp6adeh3md',
+    image: 'https://res.cloudinary.com/ds7vt7dl9/image/upload/v1746003905/ybry5grgbaacdghxgyr8.png',
     tech: ['Node.js', 'Twilio', 'MongoDB'],
   },
   {

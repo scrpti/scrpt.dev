@@ -6,6 +6,7 @@ import { useState } from 'react';
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   return (
     <section
@@ -27,7 +28,7 @@ export default function Contact() {
         transition={{ duration: 0.6, delay: 0.2 }}
         className="text-lg text-gray-300 mb-12 max-w-xl"
       >
-        Let's work together! I'm open to freelance, part-time or full-time roles. Reach out through any channel or send me a message.
+        Let&apos;s work together! I&apos;m open to freelance, part-time or full-time roles. Reach out through any channel or send me a message.
       </motion.p>
 
       {/* Botones */}
@@ -40,7 +41,7 @@ export default function Contact() {
           Email
         </a>
         <a
-          href="https://wa.me/34631912763"
+          href="https://wa.me/34644451595"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-white/10 hover:bg-white/20 px-6 py-3 rounded-lg flex items-center gap-3 transition"
@@ -49,7 +50,7 @@ export default function Contact() {
           WhatsApp
         </a>
         <a
-          href="https://www.linkedin.com/in/tuusuario"
+          href="https://www.linkedin.com/in/pedro-scarpati-951a0032a"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-white/10 hover:bg-white/20 px-6 py-3 rounded-lg flex items-center gap-3 transition"
@@ -58,7 +59,7 @@ export default function Contact() {
           LinkedIn
         </a>
         <a
-          href="https://github.com/tuusuario"
+          href="https://github.com/scrpti"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-white/10 hover:bg-white/20 px-6 py-3 rounded-lg flex items-center gap-3 transition"
@@ -68,7 +69,7 @@ export default function Contact() {
         </a>
       </div>
 
-      {/* Formulario funcional con Formspree */}
+      {/* Formulario funcional con feedback */}
       {submitted ? (
         <motion.p
           initial={{ opacity: 0 }}
@@ -79,9 +80,15 @@ export default function Contact() {
         </motion.p>
       ) : (
         <form
-          action="https://formspree.io/f/XXXXXXX" // <-- tu endpoint real aquí
+          action="https://formspree.io/f/mwpovrgl"
           method="POST"
-          onSubmit={() => setSubmitted(true)}
+          onSubmit={() => {
+            setLoading(true);
+            setTimeout(() => {
+              setLoading(false);
+              setSubmitted(true);
+            }, 1000);
+          }}
           className="w-full max-w-xl bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/10 space-y-4"
         >
           <input
@@ -105,12 +112,27 @@ export default function Contact() {
             rows={5}
             className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white rounded-md placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
           ></textarea>
-          <button
-            type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md transition font-medium"
-          >
-            Send Message
-          </button>
+
+          {/* Botón con loading */}
+          {loading ? (
+            <button
+              disabled
+              className="w-full flex justify-center items-center bg-blue-500 text-white py-3 rounded-md font-medium cursor-not-allowed"
+            >
+              <svg className="animate-spin h-5 w-5 text-white mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+              </svg>
+              Sending...
+            </button>
+          ) : (
+            <button
+              type="submit"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md transition font-medium"
+            >
+              Send Message
+            </button>
+          )}
         </form>
       )}
     </section>
