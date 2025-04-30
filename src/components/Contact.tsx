@@ -135,6 +135,24 @@ export default function Contact() {
           )}
         </form>
       )}
+      <div className='mt-12'>
+      <a
+        href="/cv-pedro-scarpati.pdf"
+        download
+        className="bg-white/10 hover:bg-white/20 px-6 py-3 rounded-lg flex items-center gap-3 transition"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path d="M3 14a1 1 0 011-1h3v-3H6l4-4 4 4h-1v3h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1v-3z" />
+        </svg>
+        Download CV
+      </a>
+      </div>
     </section>
+    
   );
 }
